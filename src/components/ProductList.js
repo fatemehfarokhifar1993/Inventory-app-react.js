@@ -1,6 +1,6 @@
 const ProductList = ({ products, categories, setProducts }) => {
-  const findCategory = (catrgoryId) => {
-    return categories.find((category) => category.id === parseInt(catrgoryId))
+  const findCategory = (categoryId) => {
+    return categories.find((category) => category.id === parseInt(categoryId))
       .title;
   };
   const deleteProduct = (productId) => {
@@ -25,7 +25,7 @@ const ProductList = ({ products, categories, setProducts }) => {
                   {new Date(product.createdAt).toLocaleDateString("fa-IR")}
                 </span>
                 <span className="block px-3 py-0.5 text-green-900 border border-green-500 text-sm rounded-2xl">
-                  {findCategory(product.catrgoryId)}
+                  {findCategory(product.categoryId)}
                 </span>
                 <span className="flex items-center justify-center w-7 h-7 rounded-full bg-green-900 border-2 border-green-200 text-green-200">
                   {product.quantity}

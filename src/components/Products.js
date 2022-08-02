@@ -4,7 +4,7 @@ const Products = ({ categories, setProducts, products }) => {
   const [productFormDate, setProductFormDate] = useState({
     title: "",
     quantity: 0,
-    catrgoryId: "",
+    categoryId: "",
   });
 
   const changeHandler = (e) => {
@@ -23,7 +23,7 @@ const Products = ({ categories, setProducts, products }) => {
         id: new Date().getTime(),
       },
     ]);
-    setProductFormDate({ title: "", quantity: 0, catrgoryId: "" });
+    setProductFormDate({ title: "", quantity: 0, categoryId: "" });
   };
   return (
     <div className="mb-6">
@@ -67,8 +67,8 @@ const Products = ({ categories, setProducts, products }) => {
           </label>
           <select
             onChange={changeHandler}
-            value={productFormDate.catrgoryId}
-            name="catrgoryId"
+            value={productFormDate.categoryId}
+            name="categoryId"
             id="product-category"
             className="bg-transparent text-green-900 rounded-xl w-full"
           >
