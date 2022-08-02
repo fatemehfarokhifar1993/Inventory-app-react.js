@@ -1,13 +1,12 @@
 import { useState } from "react";
 
-const Products = ({ categories }) => {
+const Products = ({ categories, setProducts, products }) => {
   const [productFormDate, setProductFormDate] = useState({
     title: "",
     quantity: 0,
     catrgoryId: "",
   });
 
-  const [products, setProducts] = useState([]);
   const changeHandler = (e) => {
     setProductFormDate({
       ...productFormDate,
@@ -92,7 +91,6 @@ const Products = ({ categories }) => {
         <div className="flex items-center justify-between gap-x-4">
           <button
             onClick={addNewProduct}
-            id="add-new-product"
             className="flex-1 bg-green-900 text-green-100 rounded-xl py-2"
           >
             Add new Product
