@@ -1,12 +1,11 @@
 import { useState } from "react";
 
-const Category = () => {
+const Category = ({ categories, setCategories }) => {
   const [isShow, setIsShow] = useState(false);
   const [categoryFormDate, setCategoryFormDate] = useState({
     title: "",
     description: "",
   });
-  const [categories,setCategories]=useState([])
   const changeHandler = (e) => {
     setCategoryFormDate({
       ...categoryFormDate,
@@ -15,8 +14,15 @@ const Category = () => {
   };
   const addNewCategoryHandler = (e) => {
     e.preventDefault();
-    setCategories([...categories,{...categoryFormDate,createdAt:new Date().toISOString()}]);
-    setCategoryFormDate({title:"",description:""})
+    setCategories([
+      ...categories,
+      {
+        ...categoryFormDate,
+        createdAt: new Date().toISOString(),
+        id: new Date().getTime(),
+      },
+    ]);
+    setCategoryFormDate({ title: "", description: "" });
   };
   return (
     <section>
