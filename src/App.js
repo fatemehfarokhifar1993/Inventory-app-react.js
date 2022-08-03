@@ -47,11 +47,25 @@ function App() {
     if (!selectedCategory) return array;
     return array.filter((item) => item.categoryId === selectedCategory);
   };
-
+  ////////////////////
+  useEffect(() => {
+    setProducts(JSON.parse(localStorage.getItem("products")) || []);
+    setCategories(JSON.parse(localStorage.getItem("categories")) || []);
+  }, []);
+  useEffect(() => {
+    if (products.length) {
+      localStorage.setItem("products", JSON.stringify(products));
+    }
+  }, [products]);
+  useEffect(() => {
+    if (categories.length) {
+      localStorage.setItem("categories", JSON.stringify(categories));
+    }
+  }, [categories]);
   return (
     <div>
       <div className="bg-green-100 min-h-screen">
-        <NavBar />
+        <NavBar products={products}/>
         <div className="container max-w-screen-sm mx-auto p-4">
           <Category categories={categories} setCategories={setCategories} />
           <Products

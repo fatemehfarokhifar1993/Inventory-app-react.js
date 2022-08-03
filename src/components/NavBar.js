@@ -1,4 +1,4 @@
-const NavBar = () => {
+const NavBar = ({ products }) => {
   return (
     <div
       className="h-14 flex items-center justify-center gap-x-
@@ -8,7 +8,7 @@ const NavBar = () => {
         Inventory App
       </h1>
       <span className="flex items-center justify-center w-8 h-8 rounded-full bg-green-600 border-2 border-green-100 font-bold text-green-100">
-        1
+        {products.length}
       </span>
     </div>
   );
